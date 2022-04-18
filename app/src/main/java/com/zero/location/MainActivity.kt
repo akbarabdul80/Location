@@ -42,6 +42,8 @@ class MainActivity : AppCompatActivity(), FetchAddressTask.OnTaskCompleted {
         } else {
             mFusedLocationClient.lastLocation.addOnSuccessListener { location ->
                 if (location != null) {
+//                    val result = "Latitude ${location.latitude} Longitude ${location.longitude}"
+//                    binding.textviewLocation.text = result
                     FetchAddressTask(this@MainActivity, this@MainActivity).execute(location)
                 } else {
                     binding.textviewLocation.text = resources.getString(R.string.location_notfound)
